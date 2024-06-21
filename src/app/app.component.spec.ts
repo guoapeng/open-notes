@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-richtext-markdown' title`, () => {
+  it(`should have the 'open-notes' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-richtext-markdown');
+    expect(app.title).toEqual('open-notes');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-richtext-markdown');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, open-notes');
   });
 });
