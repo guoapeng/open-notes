@@ -6,8 +6,6 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { EditorConfig } from '@ckeditor/ckeditor5-core';
 import Editor from 'ckeditor5-custom-build';
 
-
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -31,22 +29,46 @@ export class AppComponent {
       '|',
       'heading',
       '|',
+      'outdent',
+      'indent',
+      'alignment',
+      '|',
+      'removeFormat',
       'bold',
       'italic',
       'strikethrough',
-      'code',
+      {
+        label: 'Basic styles',
+        icon: 'text',
+        items: [
+          'fontSize',
+          'fontFamily',
+          'fontColor',
+          'fontBackgroundColor',
+          'highlight',
+          'superscript',
+          'subscript',
+          'code',
+        ],
+      },
+
       '|',
       'bulletedList',
       'numberedList',
       'todoList',
       '|',
+      'insertTable',
+      '|',
       'link',
       'imageUpload',
-      'insertTable',
-      'blockQuote',
+      'mediaEmbed',
       'codeBlock',
+      'blockQuote',
       'horizontalLine',
-      'specialCharacters',
+      '|',
+      'exportPdf',
+      'exportWord',
+      'importWord',
     ],
     heading: {
       options: [
@@ -94,16 +116,28 @@ export class AppComponent {
       ],
     },
     simpleUpload: {
-      uploadUrl: 'http://localhost:8888/philoenglish-server/v1.0.0/article/uploadCover'
+      uploadUrl:
+        'http://localhost:8888/philoenglish-server/v1.0.0/article/uploadCover',
+    },
+    htmlSupport: {
+      allow: [
+        {
+          name: /.*/,
+          attributes: true,
+          classes: true,
+          styles: true,
+        },
+      ],
+      disallow: [],
     },
     image: {
       toolbar: [
-				'imageTextAlternative',
-				'toggleImageCaption',
-				'imageStyle:inline',
-				'imageStyle:block',
-				'imageStyle:side'
-			]
+        'imageTextAlternative',
+        'toggleImageCaption',
+        'imageStyle:inline',
+        'imageStyle:block',
+        'imageStyle:side',
+      ],
     },
     table: {
       contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
